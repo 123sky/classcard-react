@@ -1,4 +1,3 @@
-import { formatMessage } from 'umi-plugin-react/locale';
 import pathToRegexp from 'path-to-regexp';
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
@@ -14,12 +13,7 @@ const getPageTitle = (pathname, breadcrumbNameMap) => {
   if (!currRouterData) {
     return title;
   }
-  const pageName = menu.disableLocal
-    ? currRouterData.name
-    : formatMessage({
-        id: currRouterData.locale || currRouterData.name,
-        defaultMessage: currRouterData.name,
-      });
+  const pageName = currRouterData.name;
 
   return `${pageName} - ${title}`;
 };
